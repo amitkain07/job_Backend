@@ -4,6 +4,7 @@ import conectDB from './db/connect.js'
 import notFound from './middleware/not_found.js'
 import error_handler from './middleware/error_handler.js'
 import auth from './middleware/authmiddleware.js'
+import cors from 'cors'
  dotenv.config()
 
 //  router
@@ -13,6 +14,7 @@ import jobRouter from './route/job.js'
 const app = express()
 // middleware
 app.use(express.json())
+app.use(cors())
 
 app.get('/', (req ,res) => {
     res.status(200).json({msg : "Jobs API"})
